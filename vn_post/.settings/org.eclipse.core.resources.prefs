@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/main/java/vn_post/DAO/impl/NewDAO.java=UTF-8
+encoding//src/main/java/vn_post/controller/admin/api/NewAPI.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/BuuChinhChuyenPhatController.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/HomeController.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/NhomBaiVietController.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/NoiDungController.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/PhanPhoiTruyenThongController.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/TaiChinhBuuChinhController.java=UTF-8
+encoding//src/main/java/vn_post/controller/web/TintucController.java=UTF-8
+encoding//src/main/java/vn_post/util/HttpUtil.java=UTF-8
+encoding//src/main/java/vn_post/util/SessionUtil.java=UTF-8
+encoding//src/main/webapp/common/web/header.jsp=UTF-8

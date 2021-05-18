@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+	<!-- Any urls that are excluded will never be decorated by Sitemesh -->
+	<excludes>
+		<pattern>/api*</pattern>
+	</excludes>
+	<!-- apply Sitemesh default template -->
+	<decorator name="admin" page="admin.jsp">
+		<pattern>/admin*</pattern>
+	</decorator>
+	<decorator name="web" page="web.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	<decorator name="tin-tuc" page="tin-tuc.jsp">
+		<pattern>/tin-tuc*</pattern>
+	</decorator>
+	<decorator name="nhom-bai-viet" page="nhom-bai-viet.jsp">
+		<pattern>/nhom-bai-viet*</pattern>
+	</decorator>
+	<decorator name="tai-chinh-buu-chinh"
+		page="tai-chinh-buu-chinh.jsp">
+		<pattern>/tai-chinh-buu-chinh*</pattern>
+	</decorator>
+	<decorator name="buu-chinh-chuyen-phat"
+		page="buu-chinh-chuyen-phat.jsp">
+		<pattern>/buu-chinh-chuyen-phat*</pattern>
+	</decorator>
+	<decorator name="chi-tiet-bai-viet"
+		page="chi-tiet-bai-viet.jsp">
+		<pattern>/chi-tiet-bai-viet*</pattern>
+	</decorator>
+	<decorator name="phan-phoi-truyen-thong"
+		page="phan-phoi-truyen-thong.jsp">
+		<pattern>/phan-phoi-truyen-thong*</pattern>
+	</decorator>
+	<decorator name="login" page="login.jsp">
+		<pattern>/dang-nhap</pattern>
+	</decorator>
+</decorators>
