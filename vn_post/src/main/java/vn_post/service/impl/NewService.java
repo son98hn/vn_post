@@ -21,7 +21,7 @@ public class NewService implements INewService {
 	private ICategoryDAO categoryDao;
 
 	@Override
-	public List<NewModel> findByCategoryId(Long categoryId) {
+	public List<NewModel> findByCategoryId(long categoryId) {
 		return newDao.findByCategoryId(categoryId);
 	}
 
@@ -77,7 +77,7 @@ public class NewService implements INewService {
 	}
 
 	@Override
-	public List<NewModel> findDescByCategoryId(Long categoryId) {
+	public List<NewModel> findDescByCategoryId(long categoryId) {
 		// TODO Auto-generated method stub
 		return newDao.findDescByCategoryId(categoryId);
 	}

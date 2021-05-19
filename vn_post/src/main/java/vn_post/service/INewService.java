@@ -6,7 +6,7 @@ import vn_post.model.NewModel;
 import vn_post.paging.Pageble;
 
 public interface INewService {
-	List<NewModel> findByCategoryId(Long categoryId);
+	List<NewModel> findByCategoryId(long categoryId);
 	NewModel save(NewModel newModel);
 	NewModel update(NewModel updateNew);
 	void delete(long [] ids);
@@ -14,5 +14,5 @@ public interface INewService {
 	List<NewModel> findAll(Pageble pageble);
 	int getTotalItem();
 	int getTotalItemByCategory(long categoryId);
-	List<NewModel> findDescByCategoryId(Long categoryId);
+	List<NewModel> findDescByCategoryId(long categoryId);
 }

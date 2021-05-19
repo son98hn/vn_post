@@ -40,6 +40,10 @@
 					href='<c:url value ="/admin-new?type=list&page=1&maxPageItem=6&sortName=createddate&sortBy=desc"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> DS bài viết
 				</a> <b class="arrow"></b></li>
+				<li><a
+					href='<c:url value ="/admin-user?type=list&page=1&maxPageItem=6&sortName=id&sortBy=desc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS tài khoản
+				</a> <b class="arrow"></b></li>
 			</ul></li>
 	</ul>
 	<div class="sidebar-toggle sidebar-collapse">

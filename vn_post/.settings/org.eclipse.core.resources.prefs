@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/vn_post/DAO/impl/NewDAO.java=UTF-8
 encoding//src/main/java/vn_post/controller/admin/api/NewAPI.java=UTF-8
+encoding//src/main/java/vn_post/controller/admin/api/UserAPI.java=UTF-8
 encoding//src/main/java/vn_post/controller/web/BuuChinhChuyenPhatController.java=UTF-8
 encoding//src/main/java/vn_post/controller/web/HomeController.java=UTF-8
 encoding//src/main/java/vn_post/controller/web/NhomBaiVietController.java=UTF-8

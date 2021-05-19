@@ -13,11 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import vn_post.model.CategoryModel;
 import vn_post.model.NewModel;
-import vn_post.paging.PageRequest;
-import vn_post.paging.Pageble;
 import vn_post.service.ICategoryService;
 import vn_post.service.INewService;
-import vn_post.sort.Sorter;
 import vn_post.util.FormUtil;
 
 @WebServlet(urlPatterns = { "/tin-tuc" })

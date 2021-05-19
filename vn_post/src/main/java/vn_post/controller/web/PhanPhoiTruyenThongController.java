@@ -11,13 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vn_post.model.CategoryModel;
 import vn_post.model.NewModel;
-import vn_post.paging.PageRequest;
-import vn_post.paging.Pageble;
 import vn_post.service.ICategoryService;
 import vn_post.service.INewService;
-import vn_post.sort.Sorter;
 import vn_post.util.FormUtil;
 
 @WebServlet(urlPatterns = { "/phan-phoi-truyen-thong" })
@@ -34,7 +30,7 @@ public class PhanPhoiTruyenThongController extends HttpServlet {
 			throws IOException, ServletException {
 		NewModel model = FormUtil.toModel(NewModel.class, request);
 		model.setListResult(newSerivce.findByCategoryId((long) 7));
-		model.setTotalItem(newSerivce.getTotalItemByCategory((long) 7));
+		model.setTotalItem(newSerivce.getTotalItemByCategory(7L));
 		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getMaxPageItem()));
 		request.setAttribute("model", model);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/phan-phoi-truyen-thong.jsp");
