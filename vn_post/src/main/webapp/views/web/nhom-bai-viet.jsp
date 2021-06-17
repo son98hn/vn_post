@@ -19,7 +19,7 @@
           </div>
           <c:forEach var="item" items="${categories.listResult}" begin="${item.size()}" end="${item.size()+3}">
             <div class="category">
-              <a href='<c:url value ="nhom-bai-viet?categoryId=${item.id }"/>' style=" color: black; text-decoration: none;">${item.name}</a>
+              <a href='<c:url value ="nhom-bai-viet?categoryId=${item.id}&page=1&maxPageItem=10&sortName=createddate&sortBy=desc"/>' style=" color: black; text-decoration: none;">${item.name}</a>
             </div>
           </c:forEach>
         </div>
@@ -46,7 +46,14 @@
             </c:forEach>
           </div>
         </div>
+       
+								
       </div>
+       <ul class="pagination" id="pagination"></ul>
+												<input type="hidden" value="" id="page" name="page" />
+												<input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
+												 <input type="hidden" value="" id="sortName" name="sortName" />
+												<input type="hidden" value="" id="sortBy" name="sortBy" /> 
     </body>
 
     </html>

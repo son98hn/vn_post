@@ -21,8 +21,11 @@
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       <script src="https://kit.fontawesome.com/fe072047f5.js" crossorigin="anonymous"></script>
-
+	<script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
       <style>
+      .container {
+      display: flex;
+      flex-direction: column;}
         .main {
           display: flex;
           flex-direction: row;
@@ -95,5 +98,25 @@
 
         <%@include file="/common/web/footer.jsp" %>
     </body>
-
+<script>
+				var totalPages = ${ model.totalPage };
+				var currentPage = ${ model.page };
+				var limit = 6;
+				$(function () {
+					window.pagObj = $('#pagination').twbsPagination({
+						totalPages: totalPages,
+						visiblePages: 10,
+						startPage: currentPage,
+						onPageClick: function (event, page) {
+							if (currentPage != page) {
+								$('#maxPageItem').val(limit);
+								$('#page').val(page);
+								 $('#sortName').val('createddate');
+								 $('#sortBy').val('desc');
+							
+							}
+						}
+					});
+				});
+				</script>
     </html>

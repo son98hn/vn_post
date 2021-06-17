@@ -33,9 +33,10 @@ public class AuthorizationFilter implements Filter {
 		if (url.startsWith(request.getContextPath() + "/admin")) {
 			UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 			if (model != null) {
-				if (model.getRole().getCode().equals("admin")) {
+				if (model.getGroupRoleCode().equals("admin")) {
 					filterChain.doFilter(servletRequest, servletResponse);
-				} else if (model.getRole().getCode().equals("user")) {
+
+				} else if (model.getGroupRoleCode().equals("user")) {
 					response.sendRedirect(
 							request.getContextPath() + "/dang-nhap?action=login&message=not_permission&alert=danger");
 				}

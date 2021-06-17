@@ -12,15 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vn_post.model.NewModel;
-import vn_post.service.ICategoryService;
 import vn_post.service.INewService;
 import vn_post.util.FormUtil;
 
 @WebServlet(urlPatterns = { "/buu-chinh-chuyen-phat" })
 public class BuuChinhChuyenPhatController extends HttpServlet {
-
-	@Inject
-	private ICategoryService categoryService;
 
 	@Inject
 	private INewService newSerivce;

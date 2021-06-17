@@ -33,32 +33,7 @@
                                     </div>
                                 </c:if>
                                 <form id="formSubmit">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right">Quyền</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" id="roleCode" name="roleCode">
-                                                <c:if test="${empty model.roleCode}">
-                                                    <option value="">Chọn loại quyền</option>
-                                                    <c:forEach var="item" items="${roles}">
-                                                        <option value="${item.code}">${item.name}</option>
-                                                    </c:forEach>
-                                                </c:if>
-                                                <c:if test="${not empty model.roleCode}">
-                                                    <option value="">Chọn loại quyền</option>
-                                                    <c:forEach var="item" items="${roles}">
-                                                        <option value="${item.code}" <c:if
-                                                            test="${item.code == model.roleCode}">
-                                                            selected="selected"
-                                                </c:if>>
-                                                ${item.name}
-                                                </option>
-                                                </c:forEach>
-                                                </c:if>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
+
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label no-padding-right">Username</label>
                                         <div class="col-sm-9">
@@ -78,12 +53,16 @@
                                     <br />
                                     <br />
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right">Quyền</label>
+                                        <label class="col-sm-3 control-label no-padding-right">Nhóm quyền</label>
                                         <div class="col-sm-9">
-                                            <c:forEach var="item" items="${roleDetails}">
-                                                <input type="checkbox" name="roleDetail" value="${item.id}" <c:if
-                                                    test="${item.name == model.roleDetail}"> checked="checked" </c:if>>
-                                                ${item.name}<br />
+                                            <c:forEach var="item" items="${roles}">
+                                                <input id="${item.id}" type="checkbox" name="groupRoleName"
+                                                    value="${item.name}" <c:forEach var="item1"
+                                                    items="${model.groupRoleName}">
+                                                <c:if test="${item1}.indexOf('${item.name}') >= 0">
+                                                    checked="checked"
+                                                </c:if>
+                                            </c:forEach>>${item.name}<br />
                                             </c:forEach>
                                         </div>
                                     </div>
@@ -101,6 +80,7 @@
                                             </c:if>
                                         </div>
                                     </div>
+
                                     <input type="hidden" value="${model.id}" id="id" name="id" />
                                 </form>
                             </div>
@@ -111,16 +91,16 @@
             <script>
                 $('#btnAddOrUpdateUser').click(function (e) {
                     e.preventDefault();
-                    var data = {};
+                    // var data = {};
                     var formData = $('#formSubmit').serializeArray();
-                    $.each(formData, function (i, v) {
-                        data["" + v.name + ""] = v.value;
-                    });
+                    // $.each(formData, function (i, v) {
+                    //     data["" + v.name + ""] = v.value;
+                    // });
                     var id = $('#id').val();
                     if (id == "") {
-                        addUser(data);
+                        addUser(formData);
                     } else {
-                        updateUser(data);
+                        updateUser(formData);
                     }
                 });
                 function addUser(data) {
@@ -134,7 +114,7 @@
                             window.location.href = "${UserURL}?type=edit&id=" + result.id + "&message=insert_success";
                         },
                         error: function (error) {
-                            window.location.href = "${UserURL}?type=list&maxPageItem=2&page=1&message=error_system";
+                            window.location.href = "${UserURL}?type=list&maxPageItem=6&page=1&message=error_system";
                         }
                     });
                 }
@@ -149,7 +129,7 @@
                             window.location.href = "${UserURL}?type=edit&id=" + result.id + "&message=update_success";
                         },
                         error: function (error) {
-                            window.location.href = "${UserURL}?type=list&maxPageItem=2&page=1&message=error_system";
+                            window.location.href = "${UserURL}?type=list&maxPageItem=6&page=1&message=error_system";
                         }
                     });
                 }

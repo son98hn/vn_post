@@ -77,9 +77,18 @@ public class NewService implements INewService {
 	}
 
 	@Override
-	public List<NewModel> findDescByCategoryId(long categoryId) {
-		// TODO Auto-generated method stub
-		return newDao.findDescByCategoryId(categoryId);
+	public List<NewModel> findDescByCategoryId(Pageble pageble, long categoryId) {
+		return newDao.findDescByCategoryId(pageble, categoryId);
+	}
+
+	@Override
+	public List<NewModel> findDescByCategoryId1(long categoryId) {
+		return newDao.findDescByCategoryId1(categoryId);
+	}
+
+	@Override
+	public List<NewModel> search(String title) {
+		return newDao.search(title);
 	}
 
 }

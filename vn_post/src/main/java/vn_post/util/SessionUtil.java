@@ -17,7 +17,6 @@ public class SessionUtil {
 		 request.getSession().setAttribute(key, value);
 	}
 	
-//	chưa biết  lấy dữ liệu ra kiểu gì nên đê object ép kiểu thành kiểu dữ liệu mong muốn
 	public Object getValue(HttpServletRequest request, String key) {
 		return request.getSession().getAttribute(key);
 	}

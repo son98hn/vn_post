@@ -16,5 +16,7 @@ public interface INewDAO extends GenericDAO<NewModel> {
 	List<NewModel> findAll(Pageble pageble);
 	int getTotalItem();
 	int getTotalItemByCategory(long categoryId);
-	List<NewModel> findDescByCategoryId(long categoryId);
+	List<NewModel> findDescByCategoryId(Pageble pageble, long categoryId);
+	List<NewModel> findDescByCategoryId1(long categoryId);
+	List<NewModel> search(String title);
 }

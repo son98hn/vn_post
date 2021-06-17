@@ -1,16 +1,26 @@
 
 package vn_post.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserModel extends AbstractModel<UserModel> {
 
 	private String userName;
-	private String fullName;
 	private String password;
-	private int status;
-	private Long roleId;
-	private String roleCode;
-	private String roleDetail;
-	private RoleModel role = new RoleModel();
+	private String groupRoleCode;
+	private List<String> listRoleDetailCode = new ArrayList<>();
+	private String roleDetailCode;
+	private List<List> listGroupRoleName = new ArrayList<>();
+	private List<String> groupRoleName;
+
+	public List<String> getGroupRoleName() {
+		return groupRoleName;
+	}
+
+	public void setGroupRoleName(List<String> groupRoleName) {
+		this.groupRoleName = groupRoleName;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -18,38 +28,6 @@ public class UserModel extends AbstractModel<UserModel> {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-
-	public String getFullName() {
-		return fullName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	public RoleModel getRole() {
-		return role;
-	}
-
-	public void setRole(RoleModel role) {
-		this.role = role;
 	}
 
 	public String getPassword() {
@@ -60,20 +38,40 @@ public class UserModel extends AbstractModel<UserModel> {
 		this.password = password;
 	}
 
-	public String getRoleCode() {
-		return roleCode;
+	public String getGroupRoleCode() {
+		return groupRoleCode;
 	}
 
-	public void setRoleCode(String roleCode) {
-		this.roleCode = roleCode;
+	public void setGroupRoleCode(String groupRoleCode) {
+		this.groupRoleCode = groupRoleCode;
 	}
 
-	public String getRoleDetail() {
-		return roleDetail;
+
+
+	public String getRoleDetailCode() {
+		return roleDetailCode;
 	}
 
-	public void setRoleDetail(String roleDetail) {
-		this.roleDetail = roleDetail;
+	public void setRoleDetailCode(String roleDetailCode) {
+		this.roleDetailCode = roleDetailCode;
 	}
 
+	public List<String> getListRoleDetailCode() {
+		return listRoleDetailCode;
+	}
+
+	public void setListRoleDetailCode(List<String> listRoleDetailCode) {
+		this.listRoleDetailCode = listRoleDetailCode;
+	}
+
+	public List<List> getListGroupRoleName() {
+		return listGroupRoleName;
+	}
+
+	public void setListGroupRoleName(List<List> listGroupRoleName) {
+		this.listGroupRoleName = listGroupRoleName;
+	}
+
+	
+	
 }

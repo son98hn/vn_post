@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import vn_post.model.GroupRoleDetailModel;
+import vn_post.model.GroupRoleModel;
+import vn_post.model.GroupRoleUserModel;
 import vn_post.model.NewModel;
+import vn_post.model.RoleDetailModel;
 import vn_post.model.UserModel;
 import vn_post.paging.PageRequest;
 import vn_post.paging.Pageble;
-import vn_post.service.ICategoryService;
+import vn_post.service.IGroupRoleDetailService;
+import vn_post.service.IGroupRoleService;
+import vn_post.service.IGroupRoleUserService;
 import vn_post.service.INewService;
 import vn_post.service.IUserService;
 import vn_post.sort.Sorter;
@@ -27,13 +33,22 @@ import vn_post.util.SessionUtil;
 public class HomeController extends HttpServlet {
 
 	@Inject
-	private ICategoryService categoryService;
-
-	@Inject
 	private IUserService userService;
 
 	@Inject
 	private INewService newSerivce;
+	
+	@Inject
+	private IGroupRoleUserService groupRoleUserService;
+	
+	@Inject
+	private IGroupRoleDetailService groupRoleDetailService;
+	
+	@Inject
+	private IGroupRoleService groupRoleService;
+	
+	
+	
 	private static final long serialVersionUID = 1474661389573806532L;
 
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
@@ -69,12 +84,12 @@ public class HomeController extends HttpServlet {
 		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
 			UserModel model = FormUtil.toModel(UserModel.class, request);
-			model = userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
+			model = userService.findByUserNameAndPassword(model.getUserName(), model.getPassword());
 			if (model != null) {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
-				if (model.getRole().getCode().equals("user")) {
+				if (model.getGroupRoleCode().equals("user")) {
 					response.sendRedirect(request.getContextPath() + "/trang-chu");
-				} else if (model.getRole().getCode().equals("admin")) {
+				} else if (model.getGroupRoleCode().equals("admin")) {
 					response.sendRedirect(request.getContextPath() + "/admin-home");
 				}
 			} else {

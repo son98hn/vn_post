@@ -13,12 +13,15 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="<c:url value='/template/login/style.css' />"
+<link href="<c:url value='/template/login/style1.css' />"
 	rel="stylesheet" type="text/css" media="all" />
 </head>
 <body id="LoginForm">
 
-	<dec:body />
-
+	<%@ include file="/common/web/header.jsp" %>
+	 <div>
+          <dec:body />
+        </div>
+  <%@include file="/common/web/footer.jsp" %>
 </body>
 </html>

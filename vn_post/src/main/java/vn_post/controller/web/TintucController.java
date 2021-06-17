@@ -39,13 +39,13 @@ public class TintucController extends HttpServlet {
 		category.setListResult(categoryService.findAll());
 		request.setAttribute("model", model);
 		request.setAttribute("categories", category);
-		model1.setListResult(newSerivce.findDescByCategoryId((long) 1));
+		model1.setListResult(newSerivce.findDescByCategoryId1((long) 1));
 		request.setAttribute("model1", model1);
-		model2.setListResult(newSerivce.findDescByCategoryId((long) 2));
+		model2.setListResult(newSerivce.findDescByCategoryId1((long) 2));
 		request.setAttribute("model2", model2);
-		model3.setListResult(newSerivce.findDescByCategoryId((long) 3));
+		model3.setListResult(newSerivce.findDescByCategoryId1((long) 3));
 		request.setAttribute("model3", model3);
-		model4.setListResult(newSerivce.findDescByCategoryId((long) 4));
+		model4.setListResult(newSerivce.findDescByCategoryId1((long) 4));
 		request.setAttribute("model4", model4);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/tin-tuc.jsp");
 		rd.forward(request, response);

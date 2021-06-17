@@ -44,6 +44,27 @@
 					href='<c:url value ="/admin-user?type=list&page=1&maxPageItem=6&sortName=id&sortBy=desc"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> DS tài khoản
 				</a> <b class="arrow"></b></li>
+				<li><a
+					href='<c:url value ="/admin-grouprole?type=list&page=1&maxPageItem=6&sortName=id&sortBy=desc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS nhóm quyền
+				</a> <b class="arrow"></b></li>
+				<li><a
+					href='<c:url value ="/admin-role?type=list&page=1&maxPageItem=6&sortName=id&sortBy=desc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS quyền
+				</a> <b class="arrow"></b></li>
+				<li><a
+					href='<c:url value ="/admin-roledetail?type=list&page=1&maxPageItem=9&sortName=id&sortBy=desc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS chi tiết nhóm quyền
+				</a> <b class="arrow"></b></li>
+				<li><a
+					href='<c:url value ="/admin-provin?type=list&page=1&maxPageItem=6&sortName=id&sortBy=asc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS các tỉnh, thành phố
+				</a> <b class="arrow"></b></li>
+				<li><a
+					href='<c:url value ="/admin-district?type=list&page=1&maxPageItem=6&sortName=id&sortBy=asc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS các quận, huyện
+				</a> <b class="arrow"></b></li>
+				
 			</ul></li>
 	</ul>
 	<div class="sidebar-toggle sidebar-collapse">

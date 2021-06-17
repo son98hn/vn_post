@@ -28,17 +28,30 @@
 									</c:if>
 									<div class="widget-box table-filter">
 										<div class="table-btn-controls">
+											<div class="pull-left tableTools-container">
+												<div>
+													<input type="text" name="search">
+													<button type="submit">Tìm kiếm</button>
+														<!-- href='<c:url value="/admin-new?type=search&maxPageItem=2&page=1&sortName=createddate&sortBy=desc"/>' -->
+												</div>
+											</div>
 											<div class="pull-right tableTools-container">
 												<div class="dt-buttons btn-overlap btn-group">
-													<a flag="info"
-														class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-														data-toggle="tooltip" title='Thêm bài viết'
-														href='<c:url value="/admin-new?type=edit"/>'> <span>
+													<a flag="info" class="dt-button buttons-colvis btn btn-white btn-primary
+														btn-bold" data-toggle="tooltip" title='Thêm bài viết' href='
+														<c:url value="/admin-new?type=edit" />' <c:if
+														test="${userModel.listRoleDetailCode.indexOf('add-new') == -1}">
+														style="visibility: hidden;"</c:if>>
+														<span>
 															<i class="fa fa-plus-circle bigger-110 purple"></i>
 														</span>
 													</a>
-													<button id="btnDelete" type="button"
-														class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+
+													<button id="btnDelete" type="button" <c:if
+														test="${userModel.listRoleDetailCode.indexOf('delete-new') == -1}">
+														style="visibility: hidden;"</c:if>
+														class="dt-button buttons-html5 btn btn-white btn-primary
+														btn-bold"
 														data-toggle="tooltip" title='Xóa bài viết'>
 														<span> <i class="fa fa-trash-o bigger-110 pink"></i>
 														</span>
@@ -72,6 +85,9 @@
 																		<c:param name="id" value="${item.id}" />
 																	</c:url> <a class="btn btn-sm btn-primary btn-edit"
 																		data-toggle="tooltip" title="Cập nhật bài viết"
+																		<c:if
+																		test="${userModel.listRoleDetailCode.indexOf('edit-new') == -1}">
+																		style="visibility: hidden;"</c:if>
 																		href='${editURL}'><i
 																			class="fa fa-pencil-square-o"
 																			aria-hidden="true"></i> </a>
@@ -83,8 +99,8 @@
 												<ul class="pagination" id="pagination"></ul>
 												<input type="hidden" value="" id="page" name="page" />
 												<input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
-												<!-- <input type="hidden" value="" id="sortName" name="sortName" />
-												<input type="hidden" value="" id="sortBy" name="sortBy" /> -->
+												<input type="hidden" value="" id="sortName" name="sortName" />
+												<input type="hidden" value="" id="sortBy" name="sortBy" />
 												<input type="hidden" value="" id="type" name="type" />
 											</div>
 										</div>
@@ -109,8 +125,8 @@
 							if (currentPage != page) {
 								$('#maxPageItem').val(limit);
 								$('#page').val(page);
-								// $('#sortName').val('createddate');
-								// $('#sortBy').val('desc');
+								$('#sortName').val('createddate');
+								$('#sortBy').val('desc');
 								$('#type').val('list');
 								$('#formSubmit').submit();
 							}

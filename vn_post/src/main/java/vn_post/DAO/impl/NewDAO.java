@@ -17,6 +17,12 @@ public class NewDAO extends AbstractDAO<NewModel> implements INewDAO {
 	}
 
 	@Override
+	public List<NewModel> search(String title) {
+		String sql = "SELECT * FROM new WHERE title LIKE '%?%'";
+		return query(sql, new NewMapper(), title);
+	}
+
+	@Override
 	public NewModel findOne(long id) {
 		String sql = "SELECT * FROM new WHERE id = ?";
 		List<NewModel> news = query(sql, new NewMapper(), id);
@@ -71,8 +77,21 @@ public class NewDAO extends AbstractDAO<NewModel> implements INewDAO {
 	}
 
 	@Override
-	public List<NewModel> findDescByCategoryId(long categoryId) {
+	public List<NewModel> findDescByCategoryId1(long categoryId) {
 		String sql = "SELECT * FROM new WHERE categoryid = ? order by createddate desc";
 		return query(sql, new NewMapper(), categoryId);
+	}
+
+	@Override
+	public List<NewModel> findDescByCategoryId(Pageble pageble, long categoryId) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM new WHERE categoryid = ?");
+		if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName())
+				&& StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {
+			sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + " ");
+		}
+		if (pageble.getOffset() != null && pageble.getLimit() != null) {
+			sql.append("OFFSET " + pageble.getOffset() + " ROWS FETCH NEXT " + pageble.getLimit() + " ROWS ONLY");
+		}
+		return query(sql.toString(), new NewMapper(), categoryId);
 	}
 }

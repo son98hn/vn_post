@@ -11,8 +11,9 @@ public class RoleDetailMapper implements RowMapper<RoleDetailModel> {
 		try {
 			RoleDetailModel roleDetail = new RoleDetailModel();
 			roleDetail.setId(resultSet.getLong("id"));
-			roleDetail.setName(resultSet.getString("name"));
-			roleDetail.setRoleId(resultSet.getLong("roleId"));
+			roleDetail.setRoleId(resultSet.getLong("roleid"));
+			roleDetail.setPermission(resultSet.getString("permission"));
+			roleDetail.setCode(resultSet.getString("code"));
 			return roleDetail;
 		} catch (SQLException e) {
 			return null;

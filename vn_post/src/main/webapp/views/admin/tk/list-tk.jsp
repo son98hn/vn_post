@@ -30,15 +30,19 @@
 										<div class="table-btn-controls">
 											<div class="pull-right tableTools-container">
 												<div class="dt-buttons btn-overlap btn-group">
-													<a flag="info"
-														class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-														data-toggle="tooltip" title='Thêm tài khoản'
-														href='<c:url value="/admin-user?type=edit"/>'> <span>
+													<a flag="info" class="dt-button buttons-colvis btn btn-white btn-primary
+														btn-bold" data-toggle="tooltip" title='Thêm tài khoản' href='
+														<c:url value="/admin-user?type=edit" />' <c:if
+														test="${userModel.listRoleDetailCode.indexOf('add-account') == -1}">
+														style="visibility: hidden;"</c:if>> <span>
 															<i class="fa fa-plus-circle bigger-110 purple"></i>
 														</span>
 													</a>
-													<button id="btnDelete" type="button"
-														class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+													<button id="btnDelete" type="button" <c:if
+														test="${userModel.listRoleDetailCode.indexOf('delete-account') == -1}">
+														style="visibility: hidden;"</c:if>
+														class="dt-button buttons-html5 btn btn-white btn-primary
+														btn-bold"
 														data-toggle="tooltip" title='Xóa tài khoản'>
 														<span> <i class="fa fa-trash-o bigger-110 pink"></i>
 														</span>
@@ -61,18 +65,26 @@
 														</tr>
 													</thead>
 													<tbody>
-														<c:forEach var="item" items="${model.listResult}">
+														<c:forEach var="item" items="${model.listResult}" varStatus="loop">
 															<tr>
 																<td><input type="checkbox" id="checkbox_${item.id}"
 																		value="${item.id}"></td>
 																<td>${item.userName}</td>
 																<td>${item.password}</td>
-																<td>${item.roleId}</td>
+																<td>
+																	<!-- <c:forEach var="item1" items="${model.listGroupRoleName}">
+																		<span>${item1[loop.count]}</span>
+																	</c:forEach> -->
+																	<span>${model.listGroupRoleName[loop.index]}</span>
+																</td>
 																<td>
 																	<c:url var="editURL" value="/admin-user">
 																		<c:param name="type" value="edit" />
 																		<c:param name="id" value="${item.id}" />
 																	</c:url> <a class="btn btn-sm btn-primary btn-edit"
+																		<c:if
+																		test="${userModel.listRoleDetailCode.indexOf('edit-account') == -1}">
+																		style="visibility: hidden;"</c:if>
 																		data-toggle="tooltip" title="Cập nhật tài khoản"
 																		href='${editURL}'><i
 																			class="fa fa-pencil-square-o"
@@ -85,8 +97,8 @@
 												<ul class="pagination" id="pagination"></ul>
 												<input type="hidden" value="" id="page" name="page" />
 												<input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
-												 <input type="hidden" value="" id="sortName" name="sortName" />
-												<input type="hidden" value="" id="sortBy" name="sortBy" /> 
+												<input type="hidden" value="" id="sortName" name="sortName" />
+												<input type="hidden" value="" id="sortBy" name="sortBy" />
 												<input type="hidden" value="" id="type" name="type" />
 											</div>
 										</div>
@@ -136,10 +148,10 @@
 						contentType: 'application/json',
 						data: JSON.stringify(data),
 						success: function (result) {
-							window.location.href = "${UserURL}?type=list&maxPageItem=2&page=1&message=delete_success";
+							window.location.href = "${UserURL}?type=list&maxPageItem=6&page=1&message=delete_success";
 						},
 						error: function (error) {
-							window.location.href = "${UserURL}?type=list&maxPageItem=2&page=1&message=error_system";
+							window.location.href = "${UserURL}?type=list&maxPageItem=6&page=1&message=error_system";
 						}
 					});
 				}

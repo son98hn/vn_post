@@ -19,7 +19,7 @@
           </div>
           <c:forEach var="item" items="${categories.listResult}" begin="${item.size()}" end="${item.size()+3}">
             <div class="category">
-              <a href='<c:url value ="nhom-bai-viet?categoryId=${item.id }"/>'
+              <a href='<c:url value ="nhom-bai-viet?categoryId=${item.id}&page=1&maxPageItem=10&sortName=createddate&sortBy=desc"/>'
                 style=" color: black; text-decoration: none;">${item.name}</a>
             </div>
           </c:forEach>
@@ -28,7 +28,7 @@
 
           <div class="content-tin">
             <div class="name-category">
-              <a href='<c:url value ="nhom-bai-viet?categoryId=1"/>' style="text-decoration: none; color:#485986;">Tin
+              <a href='<c:url value ="nhom-bai-viet?categoryId=1&page=1&maxPageItem=10&sortName=createddate&sortBy=desc"/>' style="text-decoration: none; color:#485986;">Tin
                 Vietnam Post</a>
             </div>
             <div class="content-news">
@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="content-tin">
-            <div class="name-category"><a href='<c:url value ="nhom-bai-viet?categoryId=2"/>'
+            <div class="name-category"><a href='<c:url value ="nhom-bai-viet?categoryId=2&page=1&maxPageItem=10&sortName=createddate&sortBy=desc"/>'
                 style="text-decoration: none; color:#485986;">Bưu điện - Văn hóa xã</a></div>
             <div class="content-news">
               <div class="first-news">
@@ -95,7 +95,7 @@
             </div>
           </div>
           <div class="content-tin">
-            <div class="name-category"><a href='<c:url value ="nhom-bai-viet?categoryId=3"/>'
+            <div class="name-category"><a href='<c:url value ="nhom-bai-viet?categoryId=3&page=1&maxPageItem=10&sortName=createddate&sortBy=desc"/>'
                 style="text-decoration: none; color:#485986;">Người bưu điện</a></div>
             <div class="content-news">
               <div class="first-news">
@@ -129,7 +129,7 @@
             </div>
           </div>
           <div class="content-tin">
-            <div class="name-category"><a href='<c:url value ="nhom-bai-viet?categoryId=4"/>'
+            <div class="name-category"><a href='<c:url value ="nhom-bai-viet?categoryId=4&page=1&maxPageItem=10&sortName=createddate&sortBy=desc"/>'
                 style="text-decoration: none; color:#485986;">Hoạt động Đảng - Đoàn thể</a></div>
             <div class="content-news">
               <div class="first-news">

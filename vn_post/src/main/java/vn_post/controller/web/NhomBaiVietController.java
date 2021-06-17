@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import vn_post.model.CategoryModel;
 import vn_post.model.NewModel;
+import vn_post.paging.PageRequest;
+import vn_post.paging.Pageble;
 import vn_post.service.ICategoryService;
 import vn_post.service.INewService;
+import vn_post.sort.Sorter;
 import vn_post.util.FormUtil;
 
 @WebServlet(urlPatterns = { "/nhom-bai-viet" })
@@ -30,10 +33,14 @@ public class NhomBaiVietController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		NewModel model = FormUtil.toModel(NewModel.class, request);
+		Pageble pageble = new PageRequest(model.getPage(), model.getMaxPageItem(),
+				new Sorter(model.getSortName(), model.getSortBy()));
 		CategoryModel category = FormUtil.toModel(CategoryModel.class, request);
 		category.setListResult(categoryService.findAll());
 		request.setAttribute("categories", category);
-		model.setListResult(newSerivce.findDescByCategoryId(model.getCategoryId()));
+		model.setListResult(newSerivce.findDescByCategoryId(pageble, model.getCategoryId()));
+		model.setTotalItem(newSerivce.getTotalItemByCategory(model.getCategoryId()));
+		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getMaxPageItem()));
 		request.setAttribute("model", model);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/nhom-bai-viet.jsp");
 		rd.forward(request, response);
